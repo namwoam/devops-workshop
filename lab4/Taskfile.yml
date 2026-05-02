@@ -4,11 +4,18 @@ tasks:
   install:
     desc: Install project dependencies
     cmds:
-      - npm install
+    - npm install
 
   dev:
     desc: Start the Vite development server
     deps:
-      - install
+    - install
     cmds:
-      - npm run dev -- --host 127.0.0.1
+    - npm run dev -- --host 127.0.0.1
+
+  test:local:
+    desc: Run Playwright tests in UI mode
+    deps:
+    - install
+    cmds:
+    - npx playwright test --ui

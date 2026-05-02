@@ -24,6 +24,20 @@ function makeGame() {
   return new Chess()
 }
 
+function cloneGame(game) {
+  const nextGame = new Chess()
+
+  game.history({ verbose: true }).forEach((move) => {
+    nextGame.move({
+      from: move.from,
+      to: move.to,
+      promotion: move.promotion,
+    })
+  })
+
+  return nextGame
+}
+
 function makeSquares() {
   return Array.from({ length: 8 }, (_, rankIndex) =>
     Array.from({ length: 8 }, (_, fileIndex) => {
@@ -101,7 +115,7 @@ function App() {
       if (!bestMove || bestMove === '(none)') return
 
       setGame((currentGame) => {
-        const nextGame = new Chess(currentGame.fen())
+        const nextGame = cloneGame(currentGame)
         const move = nextGame.move({
           from: bestMove.slice(0, 2),
           to: bestMove.slice(2, 4),
@@ -180,7 +194,7 @@ function App() {
       return
     }
 
-    const nextGame = new Chess(game.fen())
+    const nextGame = cloneGame(game)
     const move = nextGame.move({ from: selected, to: square, promotion: 'q' })
 
     if (!move) return
