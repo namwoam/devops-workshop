@@ -4,26 +4,21 @@ tasks:
   test:
     desc: Run all tests with pytest
     cmds:
-    - poetry run pytest test_lib.py -v
-
-  test:watch:
-    desc: Run tests in watch mode
-    cmds:
-    - poetry run pytest test_lib.py -v --tb=short --looponfail
+    - poetry run pytest -v
 
   test:coverage:
     desc: Run tests with coverage report
     cmds:
-    - poetry run pytest test_lib.py --cov=lab1 --cov-report=html
+    - poetry run pytest -v --cov=lib --cov-report=term-missing
 
   install:
     desc: Install project dependencies
     cmds:
-    - poetry install --no-root
+    - poetry install
 
   clean:
     desc: Remove test artifacts and cache
     cmds:
     - find . -type d -name __pycache__ -exec rm -rf {} +
     - find . -type f -name "*.pyc" -delete
-    - rm -rf .pytest_cache .coverage
+    - rm -rf .pytest_cache .coverage htmlcov

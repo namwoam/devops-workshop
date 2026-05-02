@@ -2,8 +2,7 @@
 name = "linear-algebra-lib"
 version = "0.1.0"
 description = "A simple linear algebra library for educational purposes and test practice"
-authors = ["Your Name <you@example.com>"]
-readme = "README.md"
+authors = ["namwoam <namwoam@gmail.com>"]
 packages = [{include = "lab1"}]
 
 [tool.poetry.dependencies]
@@ -18,7 +17,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
-testpaths = ["lab1"]
+testpaths = ["."]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
