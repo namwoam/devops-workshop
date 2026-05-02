@@ -14,7 +14,7 @@ tasks:
   install:
     desc: Install project dependencies
     cmds:
-    - poetry install
+    - poetry install --no-root
 
   clean:
     desc: Remove test artifacts and cache
