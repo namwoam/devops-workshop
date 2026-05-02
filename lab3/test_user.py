@@ -1,5 +1,5 @@
 import pytest
-from user import User, insert_user, get_user_by_id, create_users_table, delete_all_users, DatabaseConnectionError
+from lab3.user import User, insert_user, get_user_by_id, create_users_table, delete_all_users, DatabaseConnectionError
 
 
 @pytest.fixture(scope="function")
